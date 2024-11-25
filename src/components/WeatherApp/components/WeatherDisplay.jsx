@@ -1,4 +1,3 @@
-// src/components/WeatherApp/components/WeatherDisplay.jsx
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Star, AlertTriangle, Loader2 } from 'lucide-react';
@@ -20,6 +19,23 @@ const WeatherDisplay = () => {
     return `${Math.round(temp)}°${unit === 'metric' ? 'C' : 'F'}`;
   };
 
+  const formatDateTime = (timezone) => {
+    const localTime = new Date(Date.now() + timezone * 1000);
+    return {
+      date: localTime.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      }),
+      time: localTime.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      })
+    };
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center my-8">
@@ -39,11 +55,18 @@ const WeatherDisplay = () => {
 
   if (!weather) return null;
 
+  const { date, time } = formatDateTime(weather.timezone);
+
   return (
     <Card className="mb-6">
       <CardHeader>
         <CardTitle className="flex justify-between items-center">
-          <span>{weather.name}, {weather.sys.country}</span>
+          <div>
+            <div>{weather.name}, {weather.sys.country}</div>
+            <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
+              {date} | {time}
+            </div>
+          </div>
           <button
             onClick={() => {
               const newFavorites = favorites.includes(weather.name)
