@@ -3,9 +3,9 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const WeatherContext = createContext();
 
 const INITIAL_CITIES = [
-  'London', 'Tokyo', 'New York', 'Paris', 'Sydney', 
+  'Nairobi', 'Mombasa', 'Eldoret', 'Paris', 'Sydney', 
   'Dubai', 'Singapore', 'Mumbai', 'Rio de Janeiro', 'Cape Town',
-  'Toronto', 'Berlin', 'Moscow', 'Seoul', 'Bangkok'
+  'Toronto', 'Berlin', 'Kisumu', 'Seoul', 'Bangkok'
 ];
 
 export const WeatherProvider = ({ children }) => {
