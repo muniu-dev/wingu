@@ -16,7 +16,7 @@ const FavoritesList = () => {
   return (
     <Card className="mb-4">
       <CardContent className="pt-4">
-        <h3 className="font-semibold mb-2">Favorite Cities</h3>
+        <h3 className="font-semibold mb-2 text-2xl">Favorite Cities</h3>
         <div className="flex flex-wrap gap-2">
           {favorites.map(city => (
             <div
