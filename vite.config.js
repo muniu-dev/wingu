@@ -4,13 +4,14 @@ import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
 
 export default defineConfig({
+  base: '/wingu/',
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Weather App',
-        short_name: 'Weather',
+        name: 'Wingu App',
+        short_name: 'Wingu',
         description: 'Weather Forecast Application',
         theme_color: '#ffffff',
         icons: [
